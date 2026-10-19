@@ -1,0 +1,6 @@
+{
+  "name": "Risk and Regulatory Reporting Workbench",
+  "description": "Simulated system for reproducible risk report templates, immutable snapshot hashing, maker-checker approval workflows, and tamper-evident hash-chain audit logging with synthetic data.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
