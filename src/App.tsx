@@ -117,23 +117,10 @@ export default function App() {
         onClose={() => setIsTestModalOpen(false)}
       />
 
-      {/* Subtle Utility Footer */}
+      {/* Clean Utility Footer */}
       <footer className="bg-white border-t border-slate-200 py-3.5 px-6 text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            <span>Risk and Regulatory Reporting Workbench</span>
-            <span className="mx-2" aria-hidden="true">·</span>
-            <span>Simulated System (Synthetic Data Only)</span>
-            <span className="mx-2" aria-hidden="true">·</span>
-            <span>Not for Production Regulatory Filings</span>
-          </div>
-          <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>RFC 8785 JCS</span>
-            <span>·</span>
-            <span>NIST SHA-256</span>
-            <span>·</span>
-            <span>OIDC RBAC/ABAC</span>
-          </div>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <span>Risk and Regulatory Reporting Workbench</span>
         </div>
       </footer>
     </div>
