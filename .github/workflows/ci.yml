@@ -19,16 +19,22 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore dotnet-reference/ReportingWorkbench.csproj
+        run: |
+          dotnet restore dotnet-reference/ReportingWorkbench.csproj
+          dotnet restore dotnet-reference/Tests/ReportingWorkbench.Tests.csproj
 
       - name: Build
-        run: dotnet build dotnet-reference/ReportingWorkbench.csproj --no-restore --configuration Release
+        run: |
+          dotnet build dotnet-reference/ReportingWorkbench.csproj --no-restore --configuration Release
+          dotnet build dotnet-reference/Tests/ReportingWorkbench.Tests.csproj --no-restore --configuration Release
 
       - name: Run xUnit Tests (Reproducibility & Permission Matrix)
-        run: dotnet test dotnet-reference/ReportingWorkbench.csproj --no-build --verbosity normal --collect:"XPlat Code Coverage"
+        run: dotnet test dotnet-reference/Tests/ReportingWorkbench.Tests.csproj --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
 
       - name: Dependency Vulnerability Audit
-        run: dotnet list dotnet-reference/ReportingWorkbench.csproj package --vulnerable --include-transitive || true
+        run: |
+          dotnet list dotnet-reference/ReportingWorkbench.csproj package --vulnerable --include-transitive || true
+          dotnet list dotnet-reference/Tests/ReportingWorkbench.Tests.csproj package --vulnerable --include-transitive || true
 
   frontend-check:
     name: React / TypeScript Lint & Build
