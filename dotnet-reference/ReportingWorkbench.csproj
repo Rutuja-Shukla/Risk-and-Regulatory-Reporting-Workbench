@@ -6,8 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>false</InvariantGlobalization>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <!-- Do not treat NuGet audit security advisory warnings as fatal build errors during restore -->
-    <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+    <!-- Prevent Microsoft.NET.Test.Sdk from auto-generating duplicate Main when Program.cs exists -->
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <!-- Do not treat NuGet audit security advisory warnings or top-level statement entry point warnings as fatal errors -->
+    <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904;CS7022</WarningsNotAsErrors>
   </PropertyGroup>
 
   <ItemGroup>

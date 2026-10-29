@@ -47,15 +47,11 @@ builder.Services.AddOpenTelemetry()
     .ConfigureResource(resource => resource.AddService(serviceName))
     .WithTracing(tracing =>
     {
-        tracing
-            .AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation();
+        tracing.AddAspNetCoreInstrumentation();
     })
     .WithMetrics(metrics =>
     {
-        metrics
-            .AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation();
+        metrics.AddAspNetCoreInstrumentation();
     });
 
 var app = builder.Build();
